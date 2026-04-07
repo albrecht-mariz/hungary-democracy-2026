@@ -1,0 +1,7 @@
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; }
+
+@media (max-width: 480px) {
+  .ranked-grid { flex-direction: column !important; }
+  .hun-stats   { flex-shrink: 1 !important; flex-wrap: wrap !important; }
+}

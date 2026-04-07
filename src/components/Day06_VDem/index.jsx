@@ -314,7 +314,7 @@ function RankedPanel({ focus, hovered, onHover, onPin }) {
       <div style={rp.header}>
         <span style={rp.headerTitle}>Top 10 biggest falls · 2010 → 2025</span>
       </div>
-      <div style={rp.grid}>
+      <div style={rp.grid} className="ranked-grid">
         <div style={rp.col}>
           {colA.map(e => <RankedRow key={e.iso} entry={e} focus={focus} hovered={hovered} onHover={onHover} onPin={onPin} />)}
         </div>
@@ -380,7 +380,7 @@ function HungaryPanel() {
           classification. Elections on <strong style={{ color: '#ef4444' }}>12 April 2026</strong>.
         </p>
       </div>
-      <div style={hp.stats}>
+      <div style={hp.stats} className="hun-stats">
         <div style={hp.stat}>
           <span style={{ ...hp.num, color: '#4ade80' }}>{hun.v2010.toFixed(2)}</span>
           <span style={hp.lbl}>2010</span>
@@ -409,7 +409,7 @@ const hp = {
     textTransform: 'uppercase', color: '#ef4444', marginBottom: 5,
   },
   text: { fontSize: 11.5, color: 'rgba(255,255,255,0.48)', lineHeight: 1.7, margin: 0 },
-  stats: { display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0, paddingTop: 4 },
+  stats: { display: 'flex', alignItems: 'center', gap: 8, paddingTop: 4 },
   stat:  { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 },
   num:   { fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 },
   lbl:   { fontSize: 9, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em' },
