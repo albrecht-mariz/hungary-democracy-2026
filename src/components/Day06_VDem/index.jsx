@@ -99,7 +99,7 @@ function DemocracyChart({ focus, hovered, onHover, onPin }) {
   const focusedSP   = focus ? SPOTLIGHT[focus] : null
 
   return (
-    <svg width={W} height={IH + MT + MB}
+    <svg width="100%" viewBox={`0 0 ${W} ${IH + MT + MB}`}
       style={{ display: 'block', overflow: 'visible' }}
       onClick={e => { if (e.target === e.currentTarget) onPin(null) }}>
       <g transform={`translate(${ML},${MT})`}>
@@ -341,8 +341,8 @@ const rp = {
     fontSize: 9, letterSpacing: '0.07em', textTransform: 'uppercase',
     color: 'rgba(255,255,255,0.28)', fontWeight: 600,
   },
-  grid: { display: 'flex' },
-  col:  { flex: 1, display: 'flex', flexDirection: 'column' },
+  grid: { display: 'flex', flexWrap: 'wrap' },
+  col:  { flex: '1 1 180px', display: 'flex', flexDirection: 'column' },
   row:  {
     display: 'flex', alignItems: 'center', gap: 6,
     padding: '5px 10px', cursor: 'pointer',
@@ -397,7 +397,7 @@ function HungaryPanel() {
 
 const hp = {
   wrap: {
-    display: 'flex', gap: 14, alignItems: 'flex-start',
+    display: 'flex', gap: 14, alignItems: 'flex-start', flexWrap: 'wrap',
     padding: '12px 14px',
     background: 'rgba(239,68,68,0.05)',
     border: '1px solid rgba(239,68,68,0.15)', borderRadius: 6,
@@ -510,10 +510,10 @@ export default function Day06VDem() {
 const s = {
   page: {
     minHeight: '100vh', display: 'flex', alignItems: 'center',
-    justifyContent: 'center', padding: '48px 24px', background: BG,
+    justifyContent: 'center', padding: '24px 16px', background: BG,
   },
-  exportWrapper: { background: BG, padding: '40px 24px' },
-  card: { width: W, display: 'flex', flexDirection: 'column', gap: 14 },
+  exportWrapper: { background: BG, padding: '24px 16px', width: '100%', maxWidth: W },
+  card: { width: '100%', display: 'flex', flexDirection: 'column', gap: 14 },
   eyebrow: {
     fontSize: 10, fontWeight: 500, letterSpacing: '0.18em',
     color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase',
