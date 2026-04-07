@@ -1,5 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; }
+html, body { margin: 0; overflow-x: hidden; }
 
 @media (max-width: 480px) {
   .ranked-grid { flex-direction: column !important; }

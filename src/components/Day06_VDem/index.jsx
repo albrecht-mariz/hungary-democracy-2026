@@ -509,10 +509,12 @@ export default function Day06VDem() {
 // ── Styles ────────────────────────────────────────────────────────────────────
 const s = {
   page: {
-    minHeight: '100vh', display: 'flex', alignItems: 'center',
-    justifyContent: 'center', padding: '24px 16px', background: BG,
+    minHeight: '100vh', background: BG, padding: '24px 16px',
   },
-  exportWrapper: { background: BG, padding: '24px 16px', width: '100%', maxWidth: W },
+  exportWrapper: {
+    background: BG, padding: '24px 16px',
+    width: '100%', maxWidth: W, margin: '0 auto',
+  },
   card: { width: '100%', display: 'flex', flexDirection: 'column', gap: 14 },
   eyebrow: {
     fontSize: 10, fontWeight: 500, letterSpacing: '0.18em',
