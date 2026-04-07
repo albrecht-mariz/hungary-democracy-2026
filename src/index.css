@@ -2,6 +2,6 @@
 html, body { margin: 0; overflow-x: hidden; }
 
 @media (max-width: 480px) {
-  .ranked-grid { flex-direction: column !important; }
+  .ranked-grid { flex-direction: column !important; align-content: flex-start !important; gap: 0 !important; }
   .hun-stats   { flex-shrink: 1 !important; flex-wrap: wrap !important; }
 }

@@ -512,8 +512,8 @@ const s = {
     minHeight: '100vh', background: BG, padding: '24px 16px',
   },
   exportWrapper: {
-    background: BG, padding: '24px 16px',
-    width: '100%', maxWidth: W, margin: '0 auto',
+    background: BG, padding: '24px',
+    width: '100%', maxWidth: W + 48, margin: '0 auto',
   },
   card: { width: '100%', display: 'flex', flexDirection: 'column', gap: 14 },
   eyebrow: {
