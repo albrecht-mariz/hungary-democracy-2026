@@ -1,6 +1,6 @@
 # Is democracy falling in Hungary?
 
-Interactive data visualisation tracking Hungary's democratic decline — the largest of any country over the past 15 years.
+Interactive data visualisation tracking Hungary's democratic decline - the largest of any country over the past 15 years.
 
 **[Live →](https://albrecht-mariz.github.io/hungary-democracy-2026/)**
 
