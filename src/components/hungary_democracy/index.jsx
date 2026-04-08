@@ -377,7 +377,9 @@ function HungaryPanel() {
           the <strong style={{ color: '#ef4444' }}>largest absolute decline of all 179 countries</strong>{' '}
           in the dataset. V-Dem classifies Hungary as an{' '}
           <em>electoral autocracy</em> since 2018 - the only EU member state with this
-          classification. Elections on <strong style={{ color: '#ef4444' }}>12 April 2026</strong>.
+          classification.{' '}
+          <br />
+          Elections on <strong style={{ color: '#ef4444' }}>12 April 2026</strong>.
         </p>
       </div>
       <div style={hp.stats} className="hun-stats">
@@ -408,7 +410,7 @@ const hp = {
     fontSize: 10, fontWeight: 700, letterSpacing: '0.07em',
     textTransform: 'uppercase', color: '#ef4444', marginBottom: 5,
   },
-  text: { fontSize: 11.5, color: 'rgba(255,255,255,0.48)', lineHeight: 1.7, margin: 0 },
+  text: { fontSize: 12, color: 'rgba(255,255,255,0.65)', lineHeight: 1.7, margin: 0 },
   stats: { display: 'flex', alignItems: 'center', gap: 8, paddingTop: 4 },
   stat:  { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1 },
   num:   { fontSize: 20, fontWeight: 800, letterSpacing: '-0.02em', lineHeight: 1 },
@@ -530,22 +532,22 @@ const s = {
     fontSize: 30, fontWeight: 800, letterSpacing: '-0.02em',
     color: '#fff', lineHeight: 1.1, margin: 0,
   },
-  subtitle: { fontSize: 12, color: 'rgba(255,255,255,0.38)', margin: '7px 0 0' },
+  subtitle: { fontSize: 13, color: 'rgba(255,255,255,0.55)', margin: '7px 0 0' },
   statsRow: { display: 'flex', gap: 24, flexShrink: 0, paddingTop: 4 },
   kpi:    { display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2 },
   kpiNum: { fontSize: 28, fontWeight: 800, lineHeight: 1, color: '#fff', letterSpacing: '-0.02em' },
   kpiLbl: { fontSize: 10, color: 'rgba(255,255,255,0.3)' },
   methodNote: {
-    fontSize: 11, color: 'rgba(255,255,255,0.32)', lineHeight: 1.65,
+    fontSize: 12, color: 'rgba(255,255,255,0.52)', lineHeight: 1.65,
     padding: '9px 12px',
     background: 'rgba(255,255,255,0.03)',
     border: '1px solid rgba(255,255,255,0.06)', borderRadius: 5,
   },
-  hint: { fontSize: 10, color: 'rgba(255,255,255,0.22)', margin: '-6px 0 0', fontStyle: 'italic', letterSpacing: '0.03em' },
+  hint: { fontSize: 11, color: 'rgba(255,255,255,0.38)', margin: '-6px 0 0', fontStyle: 'italic', letterSpacing: '0.03em' },
   divider: { height: 1, background: 'rgba(255,255,255,0.07)' },
   footer: {
     display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 4,
-    fontSize: 10, color: 'rgba(255,255,255,0.18)', letterSpacing: '0.04em',
+    fontSize: 10, color: 'rgba(255,255,255,0.38)', letterSpacing: '0.04em',
   },
   exportBtns: { position: 'fixed', bottom: 20, right: 20, zIndex: 100 },
   btn: {
