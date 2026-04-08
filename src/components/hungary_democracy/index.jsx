@@ -497,7 +497,12 @@ export default function HungaryDemocracy() {
               V-Dem Institute · Country-Year Core v16 (March 2026) · v-dem.net ·
               Regime classification: Lührmann et al. (2018) Regimes of the World (v2x_regime)
             </span>
-            <span>Design: Albrecht Mariz</span>
+            <span>Analysis & Visualisation:{' '}
+              <a href="https://github.com/albrecht-mariz/" target="_blank" rel="noreferrer"
+                style={{ color: 'inherit', textDecoration: 'underline', opacity: 0.7 }}>
+                Albrecht Mariz
+              </a>
+            </span>
           </div>
 
         </div>
