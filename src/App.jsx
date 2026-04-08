@@ -1,5 +1,5 @@
-import Day06VDem from './components/Day06_VDem'
+import HungaryDemocracy from './components/hungary_democracy'
 
 export default function App() {
-  return <Day06VDem />
+  return <HungaryDemocracy />
 }

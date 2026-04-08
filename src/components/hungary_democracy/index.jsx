@@ -1,4 +1,4 @@
-// Day 06 — V-Dem · "Is Democracy Falling?"
+// Hungary Democracy Index — V-Dem
 // Line chart: Liberal Democracy Index 2010–2025, 179 countries
 // Data: V-Dem Institute, Country-Year Core v16
 
@@ -415,8 +415,8 @@ const hp = {
   lbl:   { fontSize: 9, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.06em' },
 }
 
-// ── Day06VDem ─────────────────────────────────────────────────────────────────
-export default function Day06VDem() {
+// ── HungaryDemocracy ──────────────────────────────────────────────────────────
+export default function HungaryDemocracy() {
   const [hovered, setHovered] = useState(null)
   const [pinned,  setPinned]  = useState('HUN')
   const [busy,    setBusy]    = useState(false)
