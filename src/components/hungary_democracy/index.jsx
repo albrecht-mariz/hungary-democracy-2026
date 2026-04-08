@@ -371,7 +371,7 @@ function HungaryPanel() {
           In 2010 Hungary scored{' '}
           <strong style={{ color: '#4ade80' }}>{hun.v2010.toFixed(3)}</strong> -
           a consolidated EU democracy. Since Viktor Orban's return to power that year it has
-          declined <strong style={{ color: '#ef4444' }}>every single year</strong>, reaching{' '}
+          declined in <strong style={{ color: '#ef4444' }}>nearly every year</strong>, reaching{' '}
           <strong style={{ color: '#ef4444' }}>{hun.v2025.toFixed(3)}</strong> in 2025: a loss
           of <strong style={{ color: '#ef4444' }}>{pctFall}%</strong> of its starting score and
           the <strong style={{ color: '#ef4444' }}>largest absolute decline of all 179 countries</strong>{' '}
