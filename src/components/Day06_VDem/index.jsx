@@ -99,7 +99,7 @@ function DemocracyChart({ focus, hovered, onHover, onPin }) {
   const focusedSP   = focus ? SPOTLIGHT[focus] : null
 
   return (
-    <svg width="100%" viewBox={`0 0 ${W} ${IH + MT + MB}`}
+    <svg width={W} height={IH + MT + MB}
       style={{ display: 'block', overflow: 'visible' }}
       onClick={e => { if (e.target === e.currentTarget) onPin(null) }}>
       <g transform={`translate(${ML},${MT})`}>
@@ -397,13 +397,13 @@ function HungaryPanel() {
 
 const hp = {
   wrap: {
-    display: 'flex', gap: 14, alignItems: 'flex-start', flexWrap: 'wrap',
+    display: 'flex', gap: 14, alignItems: 'flex-start',
     padding: '12px 14px',
     background: 'rgba(239,68,68,0.05)',
     border: '1px solid rgba(239,68,68,0.15)', borderRadius: 6,
   },
   flag: { fontSize: 22, flexShrink: 0, paddingTop: 2 },
-  body: { flex: 1 },
+  body: { flex: 1, minWidth: 0 },
   heading: {
     fontSize: 10, fontWeight: 700, letterSpacing: '0.07em',
     textTransform: 'uppercase', color: '#ef4444', marginBottom: 5,
@@ -439,7 +439,7 @@ export default function Day06VDem() {
   }
 
   return (
-    <div style={s.page}>
+    <div style={s.page} className="page-container">
       <div style={s.exportBtns}>
         <button onClick={exportPng} disabled={busy}
           style={{ ...s.btn, ...(busy ? { opacity: 0.5 } : {}) }}>
@@ -509,13 +509,11 @@ export default function Day06VDem() {
 // ── Styles ────────────────────────────────────────────────────────────────────
 const s = {
   page: {
-    minHeight: '100vh', background: BG, padding: '24px 16px',
+    minHeight: '100vh', display: 'flex', alignItems: 'center',
+    justifyContent: 'center', padding: '48px 24px', background: BG,
   },
-  exportWrapper: {
-    background: BG, padding: '24px',
-    width: '100%', maxWidth: W + 48, margin: '0 auto',
-  },
-  card: { width: '100%', display: 'flex', flexDirection: 'column', gap: 14 },
+  exportWrapper: { background: BG, padding: '40px 24px' },
+  card: { width: W, display: 'flex', flexDirection: 'column', gap: 14 },
   eyebrow: {
     fontSize: 10, fontWeight: 500, letterSpacing: '0.18em',
     color: 'rgba(255,255,255,0.22)', textTransform: 'uppercase',
