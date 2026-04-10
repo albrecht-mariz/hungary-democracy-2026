@@ -12,6 +12,11 @@ Interactive visualisation built with React and D3, tracking 179 countries over 1
 
 ---
 
+v2x_libdem (V-Dem Liberal Democracy Index) - combines electoral competition (v2x_polyarchy) and liberal principles (civil liberties, rule of law, independent judiciary, executive constraints). Scale 0-1; higher = more democratic. 
+The dashed line at 0.5 is a conventional reference point - V-Dem's official Regimes of the World classification (Luhrmann et al. 2018) uses separate thresholds on v2x_polyarchy (>0.5) and v2x_liberal (>0.8). 
+179 countries, unweighted.
+
+---
 **Data:** V-Dem Institute · Country-Year Core v16 (March 2026) · 179 countries · `v2x_libdem`  
 **Stack:** React · D3 · Vite  
 **License:** CC BY-NC-ND 4.0 · Analysis & Visualisation: Albrecht Mariz
