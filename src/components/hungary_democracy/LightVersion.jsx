@@ -533,7 +533,7 @@ const sL = {
   },
   exportWrapper: {
     background: BG,
-    padding: '32px 24px',
+    padding: '32px 24px 18px',
     borderRadius: 10,
     boxShadow: '0 2px 24px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.05)',
     width: '100%',
