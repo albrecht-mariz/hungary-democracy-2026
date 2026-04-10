@@ -73,19 +73,17 @@ const lineGen = d3.line()
   .curve(d3.curveCatmullRom.alpha(0.5))
   .defined(d => Number.isFinite(d.libdem))
 
-const areaGen = d3.area()
-  .x(d => xScale(d.year))
-  .y0(IH)
-  .y1(d => yScale(d.libdem))
-  .curve(d3.curveCatmullRom.alpha(0.5))
-  .defined(d => Number.isFinite(d.libdem))
-
 // ── Chart ──────────────────────────────────────────────────────────────────────
 function DemocracyChartLight({ focus, hovered, onHover, onPin }) {
   const threshY  = yScale(0.5)
   const yTicks   = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
   const x2018    = xScale(2018)
   const hunData  = ALL_TIMELINES.find(t => t.iso === 'HUN')
+  // Fill only the band between the 0.5 threshold and Hungary's line, where Hungary < 0.5
+  const areaGenThresh = d3.area()
+    .x(d => xScale(d.year)).y0(threshY).y1(d => yScale(d.libdem))
+    .curve(d3.curveCatmullRom.alpha(0.5))
+    .defined(d => Number.isFinite(d.libdem) && yScale(d.libdem) > threshY)
 
   const lineOp = iso => {
     if (!focus) return SPOTLIGHT[iso] ? (iso === 'HUN' ? 0.92 : 0.55) : 0.09
@@ -108,16 +106,6 @@ function DemocracyChartLight({ focus, hovered, onHover, onPin }) {
       style={{ display: 'block', overflow: 'visible', minWidth: Math.min(W, 300) }}
       onClick={e => { if (e.target === e.currentTarget) onPin(null) }}
     >
-      <defs>
-        <linearGradient id="hunGradLight" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#c41e1e" stopOpacity={0.13} />
-          <stop offset="100%" stopColor="#c41e1e" stopOpacity={0.01} />
-        </linearGradient>
-        <clipPath id="chartClipLight">
-          <rect x={0} y={threshY} width={IW} height={IH - threshY} />
-        </clipPath>
-      </defs>
-
       <g transform={`translate(${ML},${MT})`}>
 
         {/* Autocracy zone — below 0.5 */}
@@ -193,8 +181,8 @@ function DemocracyChartLight({ focus, hovered, onHover, onPin }) {
           stroke="rgba(0,0,0,0.6)" strokeWidth={1.8}
           strokeDasharray="5 3"
           strokeOpacity={focus ? 0.2 : 0.58} />
-        <text x={IW - 6} y={yScale(GLOBAL_AVG.at(-1).libdem) - 7}
-          textAnchor="end" fontSize={8.5} fontFamily="'IBM Plex Sans', system-ui"
+        <text x={8} y={yScale(GLOBAL_AVG[0].libdem) - 6}
+          textAnchor="start" fontSize={8.5} fontFamily="'IBM Plex Sans', system-ui"
           fontStyle="italic"
           fill={`rgba(0,0,0,${focus ? 0.18 : 0.48})`}>
           World avg
@@ -211,9 +199,9 @@ function DemocracyChartLight({ focus, hovered, onHover, onPin }) {
               onMouseEnter={() => onHover('HUN')}
               onMouseLeave={() => onHover(null)}
               onClick={e => { e.stopPropagation(); onPin('HUN') }}>
-              {/* Area fill under Hungary's line — non-interactive so lines below remain clickable */}
-              <path d={areaGen(hunData.records)} fill="url(#hunGradLight)"
-                opacity={op} clipPath="url(#chartClipLight)" pointerEvents="none" />
+              {/* Fill between 0.5 threshold and Hungary's line, only where Hungary < 0.5 */}
+              <path d={areaGenThresh(hunData.records)} fill="#c41e1e"
+                fillOpacity={0.12} opacity={op} pointerEvents="none" />
               {/* Main line */}
               <path d={lineGen(hunData.records)} fill="none"
                 stroke={sp.color} strokeWidth={isH ? 3 : 2.2}
@@ -403,7 +391,7 @@ export default function LightVersion() {
         filter: node => node.getAttribute?.('data-no-export') !== 'true',
       })
       const a = document.createElement('a')
-      a.download = 'hungary-democracy-instagram.png'
+      a.download = 'hungary-democracy-light.png'
       a.href = url; a.click()
     } finally {
       el.style.width = ''
