@@ -391,7 +391,7 @@ export default function LightVersion() {
         filter: node => node.getAttribute?.('data-no-export') !== 'true',
       })
       const a = document.createElement('a')
-      a.download = 'hungary-democracy-instagram.png'
+      a.download = 'hungary-democracy-light.png'
       a.href = url; a.click()
     } finally {
       el.style.width = ''
