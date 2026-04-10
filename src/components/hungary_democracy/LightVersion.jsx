@@ -393,7 +393,10 @@ export default function LightVersion() {
   const exportPng = () => {
     if (!cardRef.current) return
     setBusy(true)
-    domtoimage.toPng(cardRef.current, { scale: 2 })
+    domtoimage.toPng(cardRef.current, {
+      scale: 2,
+      filter: node => node.getAttribute?.('data-no-export') !== 'true',
+    })
       .then(url => {
         const a = document.createElement('a')
         a.download = 'hungary-democracy-instagram.png'
@@ -442,6 +445,7 @@ export default function LightVersion() {
           <button
             onClick={() => setShowWhy(w => !w)}
             style={sL.whyBtn}
+            data-no-export="true"
           >
             <span>{showWhy ? '▲' : '▼'}</span>
             {' '}Why Hungary?
@@ -549,7 +553,7 @@ const sL = {
   },
   whyBtn: {
     alignSelf: 'flex-start', padding: '5px 14px', fontSize: 11, fontWeight: 600,
-    letterSpacing: '0.05em', cursor: 'pointer',
+    letterSpacing: '0.05em', cursor: 'pointer', whiteSpace: 'nowrap',
     background: 'rgba(196,30,30,0.06)', color: '#c41e1e',
     border: '1px solid rgba(196,30,30,0.18)', borderRadius: 20,
     fontFamily: "'IBM Plex Sans', system-ui",
