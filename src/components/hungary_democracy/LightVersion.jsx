@@ -390,19 +390,25 @@ export default function LightVersion() {
   const focus    = hovered || pinned
   const handlePin = iso => setPinned(p => p === iso ? null : iso)
 
-  const exportPng = () => {
+  const exportPng = async () => {
     if (!cardRef.current) return
     setBusy(true)
-    domtoimage.toPng(cardRef.current, {
-      scale: 2,
-      filter: node => node.getAttribute?.('data-no-export') !== 'true',
-    })
-      .then(url => {
-        const a = document.createElement('a')
-        a.download = 'hungary-democracy-instagram.png'
-        a.href = url; a.click()
+    const el = cardRef.current
+    // Force desktop width so export is always consistent regardless of screen size
+    el.style.width = `${W}px`
+    await new Promise(r => setTimeout(r, 120))   // let layout settle
+    try {
+      const url = await domtoimage.toPng(el, {
+        scale: 2,
+        filter: node => node.getAttribute?.('data-no-export') !== 'true',
       })
-      .finally(() => setBusy(false))
+      const a = document.createElement('a')
+      a.download = 'hungary-democracy-instagram.png'
+      a.href = url; a.click()
+    } finally {
+      el.style.width = ''
+      setBusy(false)
+    }
   }
 
   return (
